@@ -29,7 +29,7 @@ export function getSortePostsData() {
         };
     });
     // Sort posts by data
-    return allPostsData.sort((a, b) => {
+    return allPostsData.sort((a: any, b: any) => {
         if (a.date < b.date) {
             return 1;
         } else {
