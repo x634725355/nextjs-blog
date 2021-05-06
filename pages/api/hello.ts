@@ -4,7 +4,11 @@ import { main } from "../../lib/admin";
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
   
-  const data = main();
+  try {
+    const data = main();
+  } catch (error) {
+    console.error("连接数据库报错", error);
+  }
 
   res.status(200).json({ name: 'John Doe' })
 }

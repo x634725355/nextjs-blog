@@ -1,0 +1,7 @@
+
+.container {
+    position: sticky;
+    top: 0px;
+    background-color: pink;
+    height: 50px;
+}
