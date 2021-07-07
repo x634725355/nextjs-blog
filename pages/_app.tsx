@@ -9,7 +9,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     router.beforePopState(({ url, as, options }) => {
       console.log('让我康康', url, as, options);
       
-
       return true
     })
   }, [])

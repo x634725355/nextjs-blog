@@ -5,7 +5,7 @@ export default function Header() {
     return (
         <>
             <div className={styles.container} >
-                123123
+                Blox
             </div>
         </>
     );
