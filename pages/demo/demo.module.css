@@ -17,3 +17,8 @@
     height: 40px;
     line-height: 40px;
 }
+
+.twoContent {
+    height: 150px;
+    overflow: hidden;
+}

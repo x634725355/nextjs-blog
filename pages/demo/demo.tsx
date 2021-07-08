@@ -3,6 +3,7 @@ import Link from "next/link";
 import BetterScroll from "better-scroll";
 import React, { useState, useRef, useEffect } from "react";
 
+import { Scroll } from "../../components/Scroll/scroll";
 import Layout, { siteTitle } from "../../components/Layout/layout";
 import styles from "./demo.module.css";
 
@@ -40,16 +41,25 @@ export default function DemoBatterScroll() {
 
     return (
         <Layout>
-            <div className={styles.box} ref={scrollRef} >
-                <div className={styles.content} >
+            <Scroll direction="horizental" >
                     {
-                        data.map(p => {
+                        data.map((p, index) => {
                             return (
-                                <div className={styles.contentItem} >{p}</div>
+                                <div key={index} className={styles.contentItem} >{p}</div>
                             );
                         })
                     }
-                </div>
+            </Scroll>
+            <div className={styles.twoContent} >
+                <Scroll>
+                    {
+                        data.map((p, index) => {
+                            return (
+                                <div key={index}>{p}</div>
+                            );
+                        })
+                    }
+                </Scroll>
             </div>
         </Layout>
     );
