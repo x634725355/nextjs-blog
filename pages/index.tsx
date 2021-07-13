@@ -25,6 +25,12 @@ export default function Home({ allPostData }) {
                 <a href="">跳转到BatterScroll测试页面</a>
             </Link>
 
+            <div>
+                <Link href="/reduxDemo/reduxDemo" >
+                    <a href="">跳转到redux测试页面</a>
+                </Link>
+            </div>
+
             <section className={utilStyles.headingMd}>
                 <p>Hello, I'm purifyThreeColor</p>
                 <p>
