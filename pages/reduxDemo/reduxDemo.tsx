@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { addText } from "../../redux/action";
-
+import Layout from "../../components/Layout/layout";
 interface Props extends csc.Props {
     num: number;
     text: string;
@@ -19,12 +19,13 @@ function ReduxDemo(props: Props) {
     }, []);
 
     return (
-        <div>
-            <header>
-                <h1>{text}</h1>
-            </header>
-
-        </div>
+        <Layout>
+            <div>
+                <header>
+                    <h1>{text}</h1>
+                </header>
+            </div>  
+        </Layout>    
     );
 }
 
