@@ -38,9 +38,9 @@ let store = createStore(counter)
 
 // 每次 state 更新时，打印日志
 // 注意 subscribe() 返回一个函数用来注销监听器
-const unsubscribe = store.subscribe(() => console.log(store.getState()))
-store.dispatch({type: INCREMENT})
-store.dispatch({type: DECREMENT})
-store.dispatch(addText('redux真的太傻逼了'));
+// const unsubscribe = store.subscribe(() => console.log(store.getState()))
+// store.dispatch({type: INCREMENT})
+// store.dispatch({type: DECREMENT})
+// store.dispatch(addText('redux真的太傻逼了'));
 
 export default store;

@@ -12,7 +12,7 @@ export default function FormDemo(props: csc.Props) {
 
 
     return (
-        <Layout>
+        <Layout >
             <div>
                 <h2>打开控制台查看效果哦</h2>
 
