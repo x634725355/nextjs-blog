@@ -7,9 +7,12 @@ const { Option } = Select;
 
 export default function FormDemo(props: csc.Props) {
     const [form] = Form.useForm();
-    const [data, setData] = useState({a:1});
+    const [data, setData] = useState({});
     
-
+    const onValuesChange = () => {
+        setData({...form.getFieldsValue()}); 
+        console.log("让你康康哦", form.getFieldsValue())
+    }
 
     return (
         <Layout>
@@ -18,7 +21,7 @@ export default function FormDemo(props: csc.Props) {
 
                 <h1>{ JSON.stringify(data) }</h1>
 
-                <Form form={form} onValuesChange={() => { setData({...form.getFieldsValue()}); console.log("让你康康哦", form.getFieldsValue()) }} >
+                <Form form={form} onValuesChange={onValuesChange} >
                     <FormExtract
                         form={form}
                         config={[

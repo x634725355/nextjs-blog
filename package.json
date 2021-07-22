@@ -8,7 +8,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@jusda-tools/jusda-extract": "^0.0.1",
     "antd": "^4.16.8",
     "better-scroll": "^2.4.1",
     "classnames": "^2.2.6",
