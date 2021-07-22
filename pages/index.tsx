@@ -18,9 +18,6 @@ export default function Home({ allPostData }) {
                 <title>{siteTitle}</title>
             </Head>
 
-            <Alert type="success">成功了</Alert>
-            <Alert type="error">失败了</Alert>
-
             <Link href="/demo/demo" >
                 <a href="">跳转到BatterScroll测试页面</a>
             </Link>
@@ -28,6 +25,12 @@ export default function Home({ allPostData }) {
             <div>
                 <Link href="/reduxDemo/reduxDemo" >
                     <a href="">跳转到redux测试页面</a>
+                </Link>
+            </div>
+
+            <div>
+                <Link href="/formDemo/formDemo">
+                    <a href="">跳转到组件demo页面</a>
                 </Link>
             </div>
 

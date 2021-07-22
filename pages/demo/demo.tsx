@@ -23,9 +23,13 @@ const emojis = [
 ];
 
 export default function DemoBatterScroll() {
-    const [data, setData] = useState(emojis);
+    const [data, setData] = useState([]);
     const [mBetter, setMBatter] = useState(null);
     const scrollRef = useRef(null);
+
+    function addData() {
+        setData([...data, ...emojis]);
+    }
 
     useEffect(() => {
         let betterScroll = new BetterScroll(scrollRef.current, {
@@ -61,6 +65,8 @@ export default function DemoBatterScroll() {
                     }
                 </Scroll>
             </div>
+
+            <button onClick={addData} >点击增加数据</button>
         </Layout>
     );
 }
