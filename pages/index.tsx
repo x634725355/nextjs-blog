@@ -34,6 +34,12 @@ export default function Home({ allPostData }) {
                 </Link>
             </div>
 
+            <div>
+                <Link href="/mutualNest/mutualNest">
+                    <a href="">向Nest发请求咯</a>
+                </Link>
+            </div>
+
             <section className={utilStyles.headingMd}>
                 <p>Hello, I'm purifyThreeColor</p>
                 <p>

@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router: NextRouter = useRouter();
   useEffect(() => {
     router.beforePopState(({ url, as, options }) => {
-      console.log('让我康康', url, as, options);
+      // console.log('让我康康', url, as, options);
       
       return true
     })

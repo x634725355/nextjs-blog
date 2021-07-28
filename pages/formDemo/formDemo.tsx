@@ -9,8 +9,6 @@ export default function FormDemo(props: csc.Props) {
     const [form] = Form.useForm();
     const [data, setData] = useState({a:1});
     
-
-
     return (
         <Layout >
             <div>
