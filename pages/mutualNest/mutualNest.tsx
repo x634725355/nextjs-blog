@@ -12,6 +12,8 @@ interface Book {
     author?: string;
 };
 
+const { Search } = Input;
+
 const formMap = [
     { name: '图书名称', key: 'name' },
     { name: '图书出版年份', key: 'year' },
@@ -36,6 +38,7 @@ const MutualNest: React.FC<csc.Props> = (props) => {
     });
 
     const [allBooks, setAllBooks] = useState<Book[]>();
+    const [searchValue, setSearchValue] = useState<string>();
 
     async function findAll() {
         const allBooks: Book[] = await API.get('book/consultBook');
@@ -48,7 +51,19 @@ const MutualNest: React.FC<csc.Props> = (props) => {
     async function addBooks() {
         const resolve = await API.post('book/addBooks', bookData);
 
-        console.log("POST MOMO", resolve);
+        if (resolve.code !== 200) {
+            return console.log('失败啦');
+        }
+
+        findAll();
+    }
+
+    async function findBook() {
+        const getBooks = await API.post('book/findBook', { name:searchValue });
+
+        setAllBooks(getBooks.data);
+
+        console.log('findBook', getBooks);
     }
 
     async function deleteBooks() {
@@ -62,15 +77,26 @@ const MutualNest: React.FC<csc.Props> = (props) => {
         setBookData({...bookData});
     }
 
+    function searchValueChange(value) {
+        setSearchValue(value);
+    }
+
+    function onSearch(value) {
+        findBook();
+    }
+
     useEffect(() => {
         findAll();
-        // deleteBooks();
     }, []);
 
     return (
         <Layout>
-            <div onKeyUp={(e) => {if (e.code === 'Enter') {addBooks()}}} className={styles.main} >
-                
+            <div className={styles.main} >
+
+                <div className={styles.search} >
+                    <Search size="large" value={searchValue} onChange={(e) => searchValueChange(e.target.value)} placeholder="input search text" onSearch={onSearch} enterButton />
+                </div>
+
                 <Table columns={columns} dataSource={allBooks} />
 
                 <Row gutter={[0, 16]} >
