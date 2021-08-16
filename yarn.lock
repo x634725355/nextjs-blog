@@ -263,10 +263,10 @@
   dependencies:
     "@babel/runtime" "^7.1.2"
 
-"@jusda-tools/jusda-extract@^0.0.1":
-  version "0.0.1"
-  resolved "http://nexus.jusdaglobal.com/repository/npm-group/@jusda-tools/jusda-extract/-/jusda-extract-0.0.1.tgz#830eedac2667c40bded27b869cc795dd88d63553"
-  integrity sha512-9WYBtMxdOJ7z11UPNvE4gX2Iv8gVRULKbqOd1wvygh7a9/zaV0RAid8sKKmI8kIVvPM6e3M7505AFTfCjLJ5gg==
+"@jusda-tools/jusda-extract@^0.0.12":
+  version "0.0.12"
+  resolved "http://nexus.jusdaglobal.com/repository/npm-private/@jusda-tools/jusda-extract/-/jusda-extract-0.0.12.tgz#7c387974522fc1b37a28d6c2d110339fd86e4c0d"
+  integrity sha512-bkPQzWP9LMpFXrvLmnSXd5+6Kn7mEtHACAd2vIZ6HBolJfIUvT3lf5bJMFBByRvOgzqdUqm0+dpChXW/gH0KjA==
   dependencies:
     "@jusda-tools/component-base-config-tools" "0.1.2"
     "@jusda-tools/local-permission" "0.0.1"

@@ -43,4 +43,8 @@ export class API {
     static async delete(url, params, urlParams?) {
         return (await API._request(url, JSON.stringify(params), urlParams, 'DELETE')).json();
     }
+
+    static async put(url, params, urlParams?) {
+        return (await API._request(url, JSON.stringify(params), urlParams, 'PUT')).json();
+    }
 }

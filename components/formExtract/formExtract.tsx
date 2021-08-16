@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Form, Input } from 'antd';
+import { ExtractItem } from "./extractItem";
 
 interface Props {
     children?: ReactNode | any;
@@ -7,7 +8,7 @@ interface Props {
     config?: { name: string; keyName: string[] }[];
 }
 
-const demoHigh = (props: Props) => {
+const formExtract = (props: Props) => {
     const { children, form, config } = props;
 
     const formItemArr: { name: string; keyName: string }[] = [];
@@ -19,9 +20,14 @@ const demoHigh = (props: Props) => {
         });
     });
 
-    function getterValue({ name, keyName, selectNodeValue }: any) {
-        const formItemNode = form.getFieldInstance(name);
-        const mode = formItemNode.props.mode;
+    function getterValue({ name, keyName, selectNodeValue }: any) { 
+        let formItemNode = form.getFieldInstance(name);
+
+        if (formItemNode?.ref?.current) {
+            formItemNode = formItemNode?.ref?.current;
+        }
+        
+        const mode = formItemNode?.props?.mode;
 
         // 获取SelcetOption节点
         const getterNodes = formItemNode.props.children;
@@ -59,9 +65,9 @@ const demoHigh = (props: Props) => {
                         noStyle
                         key={`${formItem.keyName}-${index}`}
                         name={`${formItem.keyName}`}
-                        shouldUpdate={(prevValues, curValues) => {
+                        shouldUpdate={(prevValues, curValues) => {    
                             if (prevValues[formItem.name] === curValues[formItem.name]) return false;
-
+                          
                             return getterValue({
                                 ...formItem,
                                 selectNodeValue: curValues[formItem.name],
@@ -77,4 +83,6 @@ const demoHigh = (props: Props) => {
     );
 };
 
-export default demoHigh;
+formExtract.Item = ExtractItem;
+
+export default formExtract;

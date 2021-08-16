@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Input, Row, Col, Table } from "antd";
+import { Input, Row, Col, Table, Space } from "antd";
 
 import Layout from "../../components/Layout/layout";
 import { API } from "../../utils/fetchAPI";
@@ -21,13 +21,6 @@ const formMap = [
     { name: '图书作者', key: 'author' },
 ];
 
-const columns = [
-    { title: '图书名称', dataIndex: 'name', key: 'name' },
-    { title: '图书出版年份', dataIndex: 'year', key: 'year' },
-    { title: '图书简介', dataIndex: 'describe', key: 'describe' },
-    { title: '图书作者', dataIndex: 'author', key: 'author' },
-];
-
 const MutualNest: React.FC<csc.Props> = (props) => {
 
     const [bookData, setBookData] = useState<Book>({
@@ -40,12 +33,35 @@ const MutualNest: React.FC<csc.Props> = (props) => {
     const [allBooks, setAllBooks] = useState<Book[]>();
     const [searchValue, setSearchValue] = useState<string>();
 
+    const columns = [
+        { title: '图书名称', dataIndex: 'name', key: 'name' },
+        { title: '图书出版年份', dataIndex: 'year', key: 'year' },
+        { title: '图书简介', dataIndex: 'describe', key: 'describe' },
+        { title: '图书作者', dataIndex: 'author', key: 'author' },
+        {
+            title: 'Action',
+            key: 'action',
+            render: (text, record) => (
+              <Space size="middle">
+                <a onClick={() => updateBooks(record._id, record)} >Update</a>
+                <a onClick={() => deleteBooks(record._id)} >Delete</a>
+              </Space>
+            ),
+        },
+    ];
+
     async function findAll() {
         const allBooks: Book[] = await API.get('book/consultBook');
 
         setAllBooks(allBooks);
 
         console.log("findAll", allBooks);
+    }
+
+    async function demoAxios() {
+        const resolve = await API.get('book/demoAxios');
+
+        console.log('demoAxios', resolve);
     }
 
     async function addBooks() {
@@ -66,10 +82,20 @@ const MutualNest: React.FC<csc.Props> = (props) => {
         console.log('findBook', getBooks);
     }
 
-    async function deleteBooks() {
-        const resolve = await API.delete("book/deleteBook", []);
+    async function deleteBooks(id) {
+        const resolve = await API.delete("book/deleteBook", {ids: [id]});
+
+        findAll();
 
         console.log('DELETE', resolve);
+    }
+
+    async function updateBooks(id, bookData) {
+        const resolve = await API.put('book/updateBook', {ids: [id], bookData});
+
+        findAll();
+
+        console.log('updateBooks', resolve);
     }
 
     function changeInput(value, key) {        
