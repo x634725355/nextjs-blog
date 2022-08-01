@@ -2,7 +2,7 @@ import React, { forwardRef, useEffect, useRef, useState } from "react";
 import { Form, Input, Select } from 'antd';
 // import FormExtract from "../../components/formExtract/formExtract";
 import Layout from "../../components/Layout/layout";
-import FormExtract from "@jusda-tools/jusda-extract/src/index";
+import FormExtract from "@jusda-tools/jusda-extract";
 
 const { Option } = Select;
 

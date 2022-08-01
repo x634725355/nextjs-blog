@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@jusda-tools/jusda-extract": "^0.0.12",
+    "@jusda-tools/jusda-extract": "0.0.10",
     "@types/express": "^4.17.13",
     "antd": "^4.16.8",
     "better-scroll": "^2.4.1",
@@ -22,7 +22,8 @@
     "react-redux": "^7.2.4",
     "redux": "^4.1.0",
     "remark": "^13.0.0",
-    "remark-html": "^13.0.1"
+    "remark-html": "^13.0.1",
+    "tinycolor2": "1.4.2"
   },
   "devDependencies": {
     "@types/node": "^14.14.37",
